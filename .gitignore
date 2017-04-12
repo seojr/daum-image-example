@@ -1,0 +1,13 @@
+# Gradle files
+.gradle/
+build/
+
+# Intellij
+*.iml
+.idea/
+*.properties
+/captures
+.externalNativeBuild
+
+# etc
+.DS_Store

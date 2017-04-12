@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+    defaultConfig {
+        applicationId "com.orangecaw.android.simage"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        buildTypes.each {
+            it.buildConfigField 'String', 'API_KEY', API_KEY
+            it.buildConfigField 'String', 'API_BASE_URL', API_BASE_URL
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android Support
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+
+    // Unit or Android Test
+    testCompile "junit:junit:$rootProject.junitVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+
+    // Resolve conflicts between main and test APK
+    androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+
+    // Android Annotations
+    annotationProcessor "org.androidannotations:androidannotations:$rootProject.aaVersion"
+    compile "org.androidannotations:androidannotations-api:$rootProject.aaVersion"
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+
+    // OkHttp
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+
+    // Rx
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxBindingVersion"
+    compile "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.rxBindingVersion"
+
+    // Glide
+    compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    // Lombok
+    provided "org.projectlombok:lombok:$rootProject.lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.lombokVersion"
+}

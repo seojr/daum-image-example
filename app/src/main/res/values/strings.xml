@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SImage</string>
+    <string name="app_folder_name">SImage</string>
+    <string name="search">검색</string>
+    <string name="archive">내 보관함</string>
+    <string name="search_hint">이미지 검색</string>
+    <string name="search_result_empty">검색결과가 없습니다.</string>
+    <string name="fail_search_image">이미지 검색에 실패하였습니다.</string>
+    <string name="archive_empty">내 보관함이 비었습니다.</string>
+    <string name="complete_download">저장 완료 -> [내 보관함]에서 확인하세요.</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SImage</string>
+    <string name="search">Search</string>
+    <string name="archive">My archive</string>
+    <string name="search_hint">Search Images</string>
+    <string name="search_result_empty">No results.</string>
+    <string name="fail_search_image">Image search failed.</string>
+    <string name="archive_empty">My archive is empty</string>
+    <string name="complete_download">Saved -> See [My Storage]</string>
+</resources>

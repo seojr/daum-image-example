@@ -1,9 +1,20 @@
-# daum-image-example
-using Daum Search API
+# Daum-Image-Example
+This project uses daum search API.
 
-# Settings
-1. create gradle.properties to root directory
-2. set two variables
+### Dependencies
+* MVP
+* RxJava
+* Retrolambd
+* AndroidAnnotations(AA)
+* Retrofit2 + OkHttp3
+* Glide
+* Lombok
+
+### Settings
+1. create gradle.properties to root directory.
+2. set one variable.
 ```gradle
-API_KEY="Daum developer site에서 발급한 API Key 값"
-API_BASE_URL="https://apis.daum.net/"
+API_KEY="API key value created by Daum developer console."
+```
+link [Daum developer console](http://developers.daum.net/console)
+

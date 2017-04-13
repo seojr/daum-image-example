@@ -1,11 +1,10 @@
 package com.orangecaw.android.simage.data.source;
 
-import com.orangecaw.android.simage.BuildConfig;
 import com.orangecaw.android.simage.data.Result;
 import com.orangecaw.android.simage.data.source.local.LocalSource;
 import com.orangecaw.android.simage.data.source.remote.DaumService;
-import com.orangecaw.android.simage.util.FileDateDescComparator;
 import com.orangecaw.android.simage.util.ArchiveUtil;
+import com.orangecaw.android.simage.util.FileDateDescComparator;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Bean;
@@ -28,6 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @EBean(scope = EBean.Scope.Singleton)
 public class Repository {
+
+    private static final String API_BASE_URL = "https://apis.daum.net/";
 
     DaumService remote;
 
@@ -53,7 +54,7 @@ public class Repository {
 
     private <T> T createService(OkHttpClient client, Class<T> service) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BuildConfig.API_BASE_URL)
+                .baseUrl(API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)

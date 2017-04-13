@@ -13,7 +13,6 @@ import org.androidannotations.annotations.EBean;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -90,10 +89,9 @@ public class Repository {
 
     public Observable<List<File>> getStorageFiles() {
         return Observable.just(local.getStorageFiles())
-                .map(files -> {
-                    Collections.sort(files, new FileDateDescComparator());
-                    return files;
-                });
+                .flatMap(files -> Observable.fromIterable(files))
+                .toSortedList(new FileDateDescComparator())
+                .toObservable();
     }
 
 }
